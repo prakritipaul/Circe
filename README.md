@@ -13,33 +13,33 @@ This repository contains **all relevant code and analyses** pertaining to the di
 
 
 ## Python Code
-The **Materials and Methods Section is especially** helpful to understand what each script implements. 
+The **Materials and Methods Section is especially helpful** to understand what each script implements. 
 
-### "get_pseudostates.py"
+### ```get_pseudostates.py```
 - Implements "Identification of Pseudostates" method.
 
-###  "GRNBoost2_pipeline.py"
--  Makes 50 GRNs for a given cell state/terminal cell type, which are used for subsequent analyses, namely getting "sorted_total_importance_dfs" and "sorted_percent_top_list".
--  Refer to Computational Supplementary Figures and Results. 
-*GRN is short for Gene Regulatory Network*.
+###  ```GRNBoost2_pipeline.py```
+-  Makes 50 GRNs for a given cell state/terminal cell type, which are used for subsequent analyses, namely getting ```sorted_total_importance_dfs``` and ```sorted_percent_top_list```.
+-  Refer to Computational Supplementary Figures and Results. \
+  *Note: GRN is short for Gene Regulatory Network*.
 
-### "subsampling_prediction_confidence.py"
+### ```subsampling_prediction_confidence.py```
 - Gets a percentage/confidence for the overall prediction by counting the number of times that a TF in the predicted Cocktail appears in a subsample's inferred Cocktail.
 
 ## R Code
-> "(BTN/PSC/ddN)_cocktail_pipeline.(Rmd/md)" consists of entire analysis pipeline using Circe:
-- Identification of Pseudostates
-- Calculation of Differentially Expressed Genes
-- Group Lasso
-- Comparison to other Models
-	-- (Linear) Gaussian Multivariate Multi-Response Linear Regression
-	-- (Nonlinear) GRNBoost2 
+> ```(BTN/PSC/ddN)_cocktail_pipeline.(Rmd/md)``` consists of entire analysis pipeline using Circe:
+1. Identification of Pseudostates
+2. Calculation of Differentially Expressed Genes
+3. Group Lasso
+4. Comparison to other Models \
+		-(Linear) Gaussian Multivariate Multi-Response Linear Regression \
+  		-(Nonlinear) GRNBoost2 
 
-These files are also referred to as "cocktail_pipeline files".
+These files are also referred to as ```cocktail_pipeline files```.
 
 ## Directories
 ### DEG_lists
-Contains the DEG lists generated for all three cell types: BTNs, PSCs, and ddNs.
+Contains the DEG lists generated for all three cell types: BTNs, PSCs, and ddNs. \
 *Note: DEG is short for Differentially Expressed Gene*.
 
 The Subsection **"Biological Concepts Underlying the Circe Framework" of the Results Section is especially helpful** in understanding what each of these lists pertain to. 
@@ -57,31 +57,31 @@ The Subsection **"Biological Concepts Underlying the Circe Framework" of the Res
 
 ### GRNs 
 - Subdirectories consist of the 50 GRNs built for precursor cell states and terminal cell types by GRNBoost2 [2].
-- This directory also consists of inputs to GRNBoost2 (cocktail khids and GRN_df).
-- These inputs were generated from the respective cocktail_pipeline files. 
+- This directory also consists of inputs to GRNBoost2 (```cocktail khids``` and ```GRN_df```).
+- These inputs were generated from the respective ```cocktail_pipeline files```. 
 
 
 ### helper_files
 - "Ciona_khid_TF.tsv" contains khid and human ortholog name. It was generated from Ghost database (ghost.zool.kyoto-u.ac.jp).
-- "final_helper_functions.R" and "final_main_pipeline_start_script.R" are starter scripts for the cocktail_pipeline files.
+- ```final_helper_functions.R``` and ```final_main_pipeline_start_script.R``` are starter scripts for the ```cocktail_pipeline files```.
 
 
 ### PC_pseudotime_dfs
-- Consists of "PC_pseudotime_dfs", which contain the PC coordinate values and pseudotimes for cells belonging to a given cell population segment. 
-- They were generated in the cocktail_pipeline files. 
+- Consists of ```PC_pseudotime_dfs```, which contain the PC coordinate values and pseudotimes for cells belonging to a given cell population segment. 
+- They were generated in the ```cocktail_pipeline files```. 
 
 ### subsampling
-- Contains "group_lassoed_tf_df" and "combined_subsampled_tf_df" csv files that are used as inputs to "subsampling_prediction_confidence.py".
+- Contains ```group_lassoed_tf_df``` and ```combined_subsampled_tf_df``` csv files that are used as inputs to ```subsampling_prediction_confidence.py```.
 
 ## Notes
-1. R and python code are used together in the cocktail_pipeline files.
+1. R and python code are used together in the ```cocktail_pipeline files```.
 
 2. Relevant objects such as the Seurat and URD objects are provided in and are automatically downloaded from Amazon S3 bucket "cocktails-r-objects".
 
 3. All environments generated from running the various pipelines are provided in the same Amazon S3 bucket. 
 
 ## AWS Links to R environments
-These are the R Environments generated from running the "cocktail_pipeline.Rmd" files on the various neuronal cell types. 
+These are the R Environments generated from running the ```cocktail_pipeline.Rmd``` files on the various neuronal cell types. 
 
 https://cocktails-r-objects.s3.amazonaws.com/Final_BTN_cocktail_pipeline_environment.RData.zip
 
