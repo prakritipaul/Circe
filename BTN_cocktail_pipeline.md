@@ -1,9 +1,12 @@
 BTN Cocktail Inference Pipeline
 ================
 This RMarkdown includes all analyses resulting from the computational
-methods developed in <insert name of Paper and authors> to infer the BTN
-Cocktail. Written by Prakriti Paul Chacha
+methods developed in Chapter 3 of Prakriti Paul Chacha’s PhD Thesis
+‘Computational Approaches to Reprogram Neuronal Cell Identities in Ciona
+intestinalis’.
 
+- <a href="#brief-introduction" id="toc-brief-introduction">Brief
+  Introduction</a>
 - <a href="#import-relevant-libraries"
   id="toc-import-relevant-libraries">Import Relevant Libraries</a>
 - <a
@@ -354,7 +357,54 @@ Cocktail. Written by Prakriti Paul Chacha
       on Final Result</a>
 - <a href="#rsession-info" id="toc-rsession-info">RSession Info</a>
 
-#### Import Relevant Libraries
+# Brief Introduction
+
+The analysis pipeline present here demonstrates **Circe**, a suite of
+computational methods that predict reprogramming Cocktails for neuronal
+cell types in Ciona intestinalis, as **applied to the Bipolar Tail
+Neurons (BTNs)**. A **reprogramming Cocktail is a combination of
+transcription factors** that when overexpressed, can induce a particular
+cellular identity in the cell type in which it was introduced.
+
+**There are 3 Main Computational Methods:**  
+**Method 1: Identification of Pseudostates, detailed in:**  
+(1) Identify Precursor, Mother, and their Sibling(s) Segment Cell
+Populations on Virtual Neural Lineage Tree  
+(2) Get PC Coordinates and Corresponding Pseudotimes for BTN Cells   (3)
+Get Pseudostates  
+
+**Method 2: Calculation of Differentially Expressed Genes, detailed
+in:**  
+(4) Get Differentially Expressed Genes  
+(5) Get Candidate Cocktail TFs  
+
+**3. Group Lasso, detailed in:**  
+(6) Do Cocktail TF Inference using Group Lasso Model
+
+**Extended Analyses**  
+Finally, a series of extended analyses were performed to assess the
+**strength of both Circe’s biological logic** (studying gene expression
+levels at the time of specification vs. at the terminally differentiated
+state) **and computational results**.
+
+- Extended Analyses 1 and 2 compare Cocktail Inference results from
+  another Linear Model, Gaussian Multivariate Multi-Response Linear
+  Regression (GMML), and a Nonlinear Model based on GRNBoost2
+  respectively.
+- Extended Analysis 3 compares Cocktail Inference results with Terminal
+  BTNs (fully differentiated BTNs).
+- Extended Analysis 4 performs subsampling of BTN Precursor data to
+  build confidence for Group Lasso results.
+
+**The final results (“Collier BTN Cocktail” and “POU IV” BTN Cocktail”)
+also presented here.**  
+
+**Experimental Validations of both Cocktails can be found** in “Circe
+Predicts Neurogenin, HNF6, and Collier as the BTN Cocktail” and
+“Neurogenin, HNF6, and POU IV are Sufficient to Reprogram Cell Types
+into BTNs” subsections.
+
+# Import Relevant Libraries
 
 > Please install any missing packages.
 
@@ -1842,8 +1892,6 @@ if (!(file.exists("/tmp/BTN_subsamples"))) {
 }
 ```
 
-    ## BTN_subsamples directory is present.
-
 ##### Make combined_subsampled_tf_df.
 
 ``` r
@@ -1897,7 +1945,7 @@ sessionInfo()
 
     ## R version 4.3.0 (2023-04-21)
     ## Platform: x86_64-apple-darwin20 (64-bit)
-    ## Running under: macOS Ventura 13.2.1
+    ## Running under: macOS Ventura 13.4.1
     ## 
     ## Matrix products: default
     ## BLAS:   /Library/Frameworks/R.framework/Versions/4.3-x86_64/Resources/lib/libRblas.0.dylib 
