@@ -370,8 +370,8 @@ cellular identity in the cell type in which it was introduced.
 **Method 1: Identification of Pseudostates, detailed in:**  
 (1) Identify Precursor, Mother, and their Sibling(s) Segment Cell
 Populations on Virtual Neural Lineage Tree  
-(2) Get PC Coordinates and Corresponding Pseudotimes for BTN Cells   (3)
-Get Pseudostates  
+(2) Get PC Coordinates and Corresponding Pseudotimes for BTN Cells  
+(3) Get Pseudostates
 
 **Method 2: Calculation of Differentially Expressed Genes, detailed
 in:**  
